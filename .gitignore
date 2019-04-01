@@ -1,0 +1,10 @@
+# Node Modules
+*.log*
+node_modules/
+
+# Editor files
+.idea
+*.sublime*
+
+# Distribution 
+dist/
