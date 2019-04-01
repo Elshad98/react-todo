@@ -3,6 +3,7 @@
 node_modules/
 
 # Editor files
+.vs/
 .idea
 *.sublime*
 
