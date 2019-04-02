@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header.js';
+import Todo from './Todo.js';
 import '../styles/App.css';
 
 
@@ -10,25 +11,8 @@ const App = function(props){
 			<Header title={props.title} />
 
 			<section className="todo-list">
-				<div className="todo completed">
-					<button className="checkbox icon">
-						<i className="material-icons">check_box</i>
-					</button>
-					<span className="todo-title">Изучить JavaScript</span>
-					<button className="delete icon">
-						<i className="material-icons">delete</i>
-					</button>
-				</div>
-
-				<div className="todo">
-					<button className="checkbox icon">
-						<i className="material-icons">check_box_outline_blank</i>
-					</button>
-					<span className="todo-title">Изучить React</span>
-					<button className="delete icon">
-						<i className="material-icons">delete</i>
-					</button>
-				</div>
+				<Todo title={"Изучить JavaScript"} completed={true} />
+				<Todo title={"Изучить React"} completed={true} />
 			</section>
 		</main>
 	);
