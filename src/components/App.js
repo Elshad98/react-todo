@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import '../styles/app.css';
 
 
-const App = function(){
+const App = function(props){
 	return (
 		<main>
 			<header>
-				<h1>React Todo</h1>
+				<h1>{props.title}</h1>
 			</header>
 
 			<section className="todo-list">
@@ -34,5 +35,13 @@ const App = function(){
 		</main>
 	);
 }
+
+App.propTypes = {
+  title: PropTypes.string.isRequired
+};
+
+App.defaultProps = {
+	title: "React Todo"
+};
 
 export {App};
