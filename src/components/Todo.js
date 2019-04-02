@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Checkbox from './Checkbox.js';
+import Button from './Button.js';
 
 const Todo = function(props){
 	return (
-		<div className="todo">
+		<div className={`todo${props.completed ? ' completed' : ''}`}>
 			<Checkbox checked={props.completed} />
 
 			<span className="todo-title">{props.title}</span>
-			<button className="delete icon">
-				<i className="material-icons">delete</i>
-			</button>
+
+			<Button className={"delete icon"} icon={"delet"} />
 		</div>	
 	);	
 };
