@@ -7,7 +7,7 @@ const App = function(){
 	return (
 		<div>
 			<h1>React Todo</h1>
-			<p class="subtitle">This is my first React app</p>
+			<p className="subtitle">This is my first React app</p>
 		</div>
 	);
 }
