@@ -1,16 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-const Checkbox = function(props){
-	return (
-		<button className="checkbox icon">
-			<i className="material-icons">{props.checked ? 'check_box' : 'check_box_outline_blank'}</i>
-		</button>
-	);
+class Checkbox extends React.Component{
+	constructor(){
+		super();
+
+		this.state = {
+			checked : false
+		};
+	}
+
+	render(){
+		return (
+			<button className="checkbox icon">
+				<i className="material-icons">{this.state.checked ? 'check_box' : 'check_box_outline_blank'}</i>
+			</button>
+		);
+	};
 }
-
-Checkbox.propTypes = {
-	checked: PropTypes.bool.isRequired
-};
-
+	
 export default Checkbox;
