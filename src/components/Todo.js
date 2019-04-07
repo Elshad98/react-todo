@@ -6,7 +6,7 @@ import Button from './Button.js';
 const Todo = function(props){
 	return (
 		<div className={`todo${props.completed ? ' completed' : ''}`}>
-			<Checkbox />
+			<Checkbox initialState={props.completed} />
 
 			<span className="todo-title">{props.title}</span>
 
