@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from './Header.js';
 import Todo from './Todo.js';
+import Form from './Form.js';
 import todos from './todos.js';
 
 import '../styles/App.css';
@@ -60,6 +61,8 @@ class App extends React.Component{
 					})
 					}
 				</section>
+
+				<Form />
 			</main>
 		);
 	}
