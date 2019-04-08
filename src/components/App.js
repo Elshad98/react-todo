@@ -14,16 +14,49 @@ class App extends React.Component{
 		this.state = {
 			todos: this.props.initialData
 		};
+
+		this.handleStatusChange = this.handleStatusChange.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
+	}
+
+	handleStatusChange (id){
+		const todos = this.state.todos.map((todo) => {
+			if(todo.id === id){
+				todo.completed = !todo.completed
+			}
+			return todo;
+		});
+
+		this.setState({
+			todos: todos
+		});
+	}
+
+	handleDelete (id){
+		const todos = this.state.todos.filter((todo) => {
+			return todo.id !== id;
+		});
+
+		this.setState({
+			todos: todos
+		});
 	}
 
 	render (){
 		return (
 			<main>
 				<Header title={this.props.title} />
-
+				
 				<section className="todo-list">
 					{this.state.todos.map((todo) => {
-						return <Todo key={todo.id} title={todo.title} completed={todo.completed} />
+						return <Todo 
+									key={todo.id} 
+									id={todo.id}
+									title={todo.title} 
+									completed={todo.completed} 
+									onStatusChange={this.handleStatusChange}
+									onDelete={this.handleDelete}
+								/>
 					})
 					}
 				</section>
