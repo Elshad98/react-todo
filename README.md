@@ -18,5 +18,5 @@ $ npm start
 ```  
 To build the app for production, run the following command  
 ```
-$ npm run bundle
+$ npm run build
 ```  
