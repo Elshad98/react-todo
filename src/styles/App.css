@@ -183,3 +183,9 @@ header h1 {
 .todo-form button {
   margin-left: 10px;
 }
+.inputError{
+ border: 1px solid #f04747;
+}
+input.inputError:focus{
+ border: 1px solid #f04747;
+}

@@ -16,13 +16,20 @@ class Form extends React.Component {
 
 	handleSubmit (evt){
 		evt.preventDefault();
-		console.log(evt);
+		const title = this.refs.title.value.trim();
+		if(title && isNaN(title)){
+			this.props.onAdd(title);
+			this.refs.title.classList.remove('inputError');
+			this.refs.title.value = '';
+		}else{
+			this.refs.title.classList.add('inputError');
+		}
 	}
 
 	render (){
 		return (
 			<form className="todo-form" onSubmit={this.handleSubmit}>
-				<input type="text" placeholder="Что нужно сделать?" />
+				<input type="text" ref="title" placeholder="Что нужно сделать?" />
 
 				<Button type="submit">Добавить</Button>
 			</form>
@@ -31,7 +38,7 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-
+	onAdd: PropTypes.func.isRequired
 };
 
 export default Form;
