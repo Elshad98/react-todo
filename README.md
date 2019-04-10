@@ -1,8 +1,8 @@
 # React Todo
 
-Small TODO application that is created using React.js.
-The main purpose of this application is to learn React.js.
-Check the demo: 
+Small TODO application that is created using React.js.  
+The main purpose of this application is to learn React.js.  
+Check the demo:   
 
 ### Instructions
 
