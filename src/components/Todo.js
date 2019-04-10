@@ -12,7 +12,35 @@ class Todo extends React.Component{
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('componentWillReduceProps');
+        console.log('nextProps', nextProps);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('componentWillUpdate');
+        console.log('nextProps', nextProps);
+        console.log('nextState', nextState);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shoudComponentUpdate');
+        console.log('nextProps', nextProps);
+        console.log('nextState', nextState);
+        return true;
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate');
+        console.log('prevProps', prevProps);
+        console.log('prevState', prevState);
+    }
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
 
 	handleSubmit(evt){
 		evt.preventDefault();
@@ -45,7 +73,8 @@ class Todo extends React.Component{
 		);
 	}
 
-	render(){
+    render() {
+        console.log('render');
 		return this.state.editing ? this.renderForm() : this.renderDisplay();
 	}	
 }
