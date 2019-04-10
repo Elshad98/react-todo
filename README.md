@@ -6,7 +6,7 @@ Check the demo:
 
 ## Instructions
 
-First clone this repository.  
+First clone this repository.    
 ```
 $ git clone https://github.com/elshad98/react-todo.git
 ```  
