@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Stats from './Stats.js';
+import Stopwatch from './Stopwatch';
 
 const Header = function(props){
 	return (
 		<header>
 			<Stats todos={props.todos} />
-			<h1>{props.title}</h1>
+            <h1>{props.title}</h1>
+            <Stopwatch />
 		</header>	
 	);
 };
