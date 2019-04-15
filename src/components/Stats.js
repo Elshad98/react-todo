@@ -29,7 +29,7 @@ const Stats = function (props){
 }
 
 Stats.propTypes = {
-	todos: PropTypes	.array.isRequired
+	todos: PropTypes.array.isRequired
 };
 
 export default Stats;
