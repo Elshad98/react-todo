@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from './Button.js';
+import Button from './Button';
 import { totalmem } from 'os';
 
 class Stopwatch extends React.Component{

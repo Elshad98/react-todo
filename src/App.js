@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './Header.js';
-import Todo from './Todo.js';
-import Form from './Form.js';
-import todos from './todos.js';
+import Header from './components/Header.js';
+import Todo from './components/Todo.js';
+import Form from './components/Form.js';
+import todos from './components/todos.js';
 
-import '../styles/App.css';
+import './styles/App.css';
 
 class App extends React.Component{
 	constructor(props){
