@@ -1,30 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './components/Header.js';
-import Todo from './components/Todo.js';
-import Form from './components/Form.js';
-import todos from './components/todos.js';
+import Header from '../Header.js';
+import Todo from '../Todo.js';
+import Form from '../Form.js';
 
-import './styles/App.css';
+import './app.css';
 
-class App extends React.Component{
-	constructor(props){
-		super(props);
+class App extends React.Component {
 
-		this.state = {
-			todos: this.props.initialData
-		};
+	state = {
+		todos: this.props.initialData
+	};
 
-		this.handleStatusChange = this.handleStatusChange.bind(this);
-		this.handleDelete = this.handleDelete.bind(this);
-		this.handleAdd = this.handleAdd.bind(this);
-		this.handleEdit = this.handleEdit.bind(this);
-	}
-
-	handleStatusChange (id){
+	handleStatusChange = (id) => {
 		const todos = this.state.todos.map((todo) => {
-			if(todo.id === id){
+			if (todo.id === id) {
 				todo.completed = !todo.completed
 			}
 			return todo;
@@ -35,7 +26,7 @@ class App extends React.Component{
 		});
 	}
 
-	handleDelete (id){
+	handleDelete = (id) => {
 		const todos = this.state.todos.filter((todo) => {
 			return todo.id !== id;
 		});
@@ -45,12 +36,12 @@ class App extends React.Component{
 		});
 	}
 
-	nextId(){
+	nextId() {
 		this._nextId = this._nextId || 4;
 		return this._nextId++;
 	}
 
-	handleAdd (title){
+	handleAdd = (title) => {
 		const todo = {
 			id: this.nextId(),
 			title: title,
@@ -64,9 +55,9 @@ class App extends React.Component{
 		});
 	}
 
-	handleEdit(id, title){
+	handleEdit = (id, title) => {
 		const todos = this.state.todos.map((todo) => {
-			if(todo.id === id){
+			if (todo.id === id) {
 				todo.title = title;
 			}
 
@@ -78,24 +69,23 @@ class App extends React.Component{
 		});
 	}
 
-	render (){
+	render() {
 		return (
 			<main>
 				<Header title={this.props.title} todos={this.state.todos} />
-				
-				<section className="todo-list">
-					{this.state.todos.map((todo) => {
-						return <Todo 
-									key={todo.id} 
-									id={todo.id}
-									title={todo.title} 
-									completed={todo.completed} 
-									onStatusChange={this.handleStatusChange}
-									onDelete={this.handleDelete}
-									onEdit={this.handleEdit}
-								/>
-					})
-					}
+
+				<section className='todo-list'>
+					{this.state.todos.map((todo) =>
+						<Todo
+							key={todo.id}
+							id={todo.id}
+							title={todo.title}
+							completed={todo.completed}
+							onStatusChange={this.handleStatusChange}
+							onDelete={this.handleDelete}
+							onEdit={this.handleEdit}
+						/>
+					)}
 				</section>
 
 				<Form onAdd={this.handleAdd} />
@@ -114,6 +104,7 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-	title: "React Todo"
+	title: 'React Todo'
 }
+
 export default App;
