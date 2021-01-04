@@ -83,6 +83,10 @@ input {
     outline: none;
 }
 
+input.is-invalid {
+    border: 1px solid #dc3545;
+}
+
 main {
     display: block;
     width: 700px;

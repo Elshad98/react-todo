@@ -6,23 +6,40 @@ import Button from './button';
 class Todo extends React.Component {
 
 	state = {
-		editing: false
+		editing: false,
+		text: this.props.title,
+		isInvalid: false
 	};
 
 	handleSubmit = (evt) => {
 		evt.preventDefault();
-		const title = this.refs.title.value;
-		this.props.onEdit(this.props.id, title);
+		if (this.state.text.trim().length > 0) {
+			this.props.onEdit(this.props.id, this.state.text);
+			this.setState({
+				editing: false,
+				isInvalid: false
+			});
+		} else {
+			this.setState({
+				isInvalid: true
+			});
+		}
+	}
+
+	handleChange = (evt) => {
 		this.setState({
-			editing: false
+			text: evt.target.value
 		});
 	}
 
 	renderForm() {
 		return (
-			<form className="todo-edit-form" onSubmit={this.handleSubmit}>
-				<input type="text" ref="title" defaultValue={this.props.title} />
-				<Button className="save icon" icon="save" type="submit" />
+			<form className='todo-edit-form' onSubmit={this.handleSubmit}>
+				<input className={`${this.state.isInvalid ? 'is-invalid' : ''}`}
+					type="text"
+					onChange={this.handleChange}
+					value={this.state.text} />
+				<Button className='save icon' icon='save' type='submit' />
 			</form>
 		);
 	}
@@ -32,10 +49,10 @@ class Todo extends React.Component {
 			<div className={`todo${this.props.completed ? ' completed' : ''}`} >
 				<Checkbox checked={this.props.completed} onChange={() => { this.props.onStatusChange(this.props.id) }} />
 
-				<span className="todo-title">{this.props.title}</span>
+				<span className='todo-title'>{this.props.title}</span>
 
-				<Button className="edit icon" icon="edit" onClick={() => { this.setState({ editing: true }) }} />
-				<Button className="delete icon" icon="delete" onClick={() => { this.props.onDelete(this.props.id) }} />
+				<Button className='edit icon' icon='edit' onClick={() => { this.setState({ editing: true }) }} />
+				<Button className='delete icon' icon='delete' onClick={() => { this.props.onDelete(this.props.id) }} />
 			</div>
 		);
 	}
