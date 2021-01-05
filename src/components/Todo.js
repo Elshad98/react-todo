@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from './Checkbox';
+import Checkbox from './checkbox';
 import Button from './button';
 
 class Todo extends React.Component {

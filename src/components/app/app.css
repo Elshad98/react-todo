@@ -83,10 +83,6 @@ input {
     outline: none;
 }
 
-input.is-invalid {
-    border: 1px solid #dc3545;
-}
-
 main {
     display: block;
     width: 700px;
@@ -251,4 +247,12 @@ header h1 {
 
 .inputError {
     border: 1px solid #f04747;
+}
+
+input.is-invalid {
+    border: 1px solid #dc3545;
+}
+
+input.is-invalid:focus {
+    border: 1px solid #dc3545;
 }
