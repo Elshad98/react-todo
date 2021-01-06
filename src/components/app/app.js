@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from '../Header.js';
 import Todo from '../Todo.js';
-import Form from '../Form.js';
+import Form from '../form';
 
 import './app.css';
 
@@ -73,7 +73,6 @@ class App extends React.Component {
 		return (
 			<main>
 				<Header title={this.props.title} todos={this.state.todos} />
-
 				<section className='todo-list'>
 					{this.state.todos.map((todo) =>
 						<Todo
@@ -87,7 +86,6 @@ class App extends React.Component {
 						/>
 					)}
 				</section>
-
 				<Form onAdd={this.handleAdd} />
 			</main>
 		);

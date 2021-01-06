@@ -1,26 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from './button';
+import Button from '../button';
+
+import './form.css';
 
 class Form extends React.Component {
 
 	state = {
-		title: ''
+		title: '',
+		isInvalid: false
 	};
 
 	handleSubmit = (evt) => {
 		evt.preventDefault();
 		const title = this.state.title.trim();
-		const input = evt.target.querySelector('input');
-		if (title && isNaN(title)) {
-			input.classList.remove('inputError');
+		if (title.length > 0) {
 			this.props.onAdd(title);
 			this.setState({
-				title: ''
+				title: '',
+				isInvalid: false
 			});
 		} else {
-			input.classList.add('inputError');
+			this.setState({
+				isInvalid: true
+			});
 		}
 	}
 
@@ -32,14 +36,14 @@ class Form extends React.Component {
 
 	render() {
 		return (
-			<form className="todo-form" onSubmit={this.handleSubmit}>
+			<form className='todo-form' onSubmit={this.handleSubmit}>
 				<input
-					type="text"
+					type='text'
 					value={this.state.title}
-					placeholder="Что нужно сделать?"
+					placeholder='What needs to be done'
 					onChange={this.handleChange}
-				/>
-				<Button type="submit">Добавить</Button>
+					className={`${this.state.isInvalid ? 'is-invalid' : ''}`} />
+				<Button type='submit'>Add</Button>
 			</form>
 		);
 	}
