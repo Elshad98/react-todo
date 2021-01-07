@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Stats from './Stats';
-import Stopwatch from './Stopwatch';
+import Stats from '../Stats';
+import Stopwatch from '../Stopwatch';
 
-const Header = function(props){
+import './header.css';
+
+const Header = function (props) {
 	return (
-		<header>
+		<header className='header'>
 			<Stats todos={props.todos} />
-            <h1>{props.title}</h1>
-            <Stopwatch />
-		</header>	
+			<h1 className='title'>{props.title}</h1>
+			<Stopwatch />
+		</header>
 	);
 };
 

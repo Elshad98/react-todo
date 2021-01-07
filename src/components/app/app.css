@@ -100,22 +100,6 @@ main:hover {
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .2);
 }
 
-header {
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    color: #dadada;
-    background-color: #36393F;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-header h1 {
-    display: inline-block;
-    color: #fff;
-    margin: 1rem auto;
-}
-
 /* Stats */
 
 .stats {

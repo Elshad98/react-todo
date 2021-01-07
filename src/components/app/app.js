@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from '../Header.js';
+import Header from '../header';
 import Todo from '../Todo.js';
 import Form from '../form';
 
