@@ -1,26 +1,27 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
-const Stats = function (props){
+import './stats.css';
+
+const Stats = function (props) {
 	const total = props.todos.length;
 	const completed = props.todos.filter((todo) => {
 		return todo.completed;
 	}).length;
-	const notCompleted = total - completed; 
+	const notCompleted = total - completed;
 
 	return (
-		<table className="stats" >
+		<table className='stats' >
 			<tbody>
 				<tr>
-					<th>Всего задач:</th>
+					<th>All:</th>
 					<td>{total}</td>
 				</tr>
 				<tr>
-					<th>Выполнено:</th>
+					<th>Done:</th>
 					<td>{completed}</td>
 				</tr>
 				<tr>
-					<th>Осталось:</th>
+					<th>Active:</th>
 					<td>{notCompleted}</td>
 				</tr>
 			</tbody>
