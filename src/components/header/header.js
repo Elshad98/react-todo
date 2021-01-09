@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Stats from '../stats';
-import Stopwatch from '../Stopwatch';
+import Stopwatch from '../stopwatch';
 
 import './header.css';
 

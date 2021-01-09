@@ -100,22 +100,6 @@ main:hover {
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .2);
 }
 
-/* Stopwatch */
-
-.stopwatch {
-    padding: 15px 10px 5px 10px;
-}
-
-.stopwatch-time {
-    font-family: monospace;
-    font-size: 2em;
-}
-
-.stopwatch-controls button {
-    margin: 5px;
-    color: white;
-}
-
 /* Todo */
 
 .todo {

@@ -1,22 +1,16 @@
 import React from 'react';
 
-import Button from './button';
+import Button from '../button';
 
-class Stopwatch extends React.Component{
-	constructor(props){
-		super(props);
+import './stopwatch.css';
 
-		this.state = {
-            running: false,
-            elapsed: 0,
-            lastTick: 0
-        };
+class Stopwatch extends React.Component {
 
-        this.handleStart = this.handleStart.bind(this);
-        this.handlePause = this.handlePause.bind(this);
-        this.handleStop = this.handleStop.bind(this);
-        this.tick = this.tick.bind(this);
-    }
+    state = {
+        running: false,
+        elapsed: 0,
+        lastTick: 0
+    };
 
     componentDidMount() {
         this.interval = setInterval(this.tick, 1000);
@@ -26,7 +20,7 @@ class Stopwatch extends React.Component{
         clearInterval(this.interval);
     }
 
-    tick() {
+    tick = () => {
         if (this.state.running) {
             const now = Date.now();
             const diff = now - this.state.lastTick;
@@ -35,23 +29,23 @@ class Stopwatch extends React.Component{
                 elapsed: this.state.elapsed + diff,
                 lastTick: now
             });
-        }        
+        }
     }
 
-    handleStart() {
+    handleStart = () => {
         this.setState({
             running: true,
             lastTick: Date.now()
         });
     }
 
-    handlePause() {
+    handlePause = () => {
         this.setState({
             running: false
         });
     }
 
-    handleStop() {
+    handleStop = () => {
         this.setState({
             running: false,
             elapsed: 0,
@@ -69,21 +63,20 @@ class Stopwatch extends React.Component{
 
     render() {
         const time = this.format(this.state.elapsed);
-		return (
-			<section className="stopwatch">
-                <div className="stopwatch-time">{time}</div>
-
-                <div className="stopwatch-controls">
+        return (
+            <section className='stopwatch'>
+                <div className='stopwatch-time'>{time}</div>
+                <div className='stopwatch-controls'>
                     {this.state.running ?
-                        <Button className="icon" onClick={this.handlePause} icon="pause" />
+                        <Button className='icon' onClick={this.handlePause} icon='pause' />
                         :
-                        <Button className="icon" onClick={this.handleStart} icon="play_arrow" />
-                    }					
-                    <Button className="icon" onClick={this.handleStop} icon="stop" />
-				</div>
-			</section>
-		);
-	}
+                        <Button className='icon' onClick={this.handleStart} icon='play_arrow' />
+                    }
+                    <Button className='icon' onClick={this.handleStop} icon='stop' />
+                </div>
+            </section>
+        );
+    }
 }
 
 export default Stopwatch;
