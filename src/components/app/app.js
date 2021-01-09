@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from '../header';
-import Todo from '../Todo.js';
+import Todo from '../todo';
 import Form from '../form';
 
 import './app.css';
